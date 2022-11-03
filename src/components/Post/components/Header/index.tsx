@@ -5,7 +5,7 @@ import ProfilePicture from '../../../ProfilePicture';
 import styles from './styles';
 
 export interface IHeaderProps {
-  imageUri: string;
+  imageUri: number;
   name: string;
 }
 

@@ -6,7 +6,7 @@ import Stories from '../UserStoriesPreview';
 export interface IPost {
   id: string;
   user: {
-    imageUri: string;
+    imageUri: number;
     name: string;
   };
   imageUri: string;
@@ -19,10 +19,10 @@ const data: IPost[] = [
   {
     id: '1',
     user: {
-      imageUri: '/images/profiles/profile1.jpg',
+      imageUri: require('../../assets/images/profiles/profile1.jpg'),
       name: 'User1',
     },
-    imageUri: '/images/stories/story1.jpg',
+    imageUri: require('../../assets/images/stories/story1.jpg'),
     caption: 'Beautiful city #instagram',
     likesCount: 1234,
     postedAt: '6 minutes ago',
@@ -30,10 +30,10 @@ const data: IPost[] = [
   {
     id: '2',
     user: {
-      imageUri: '/images/profiles/profile2.jpg',
+      imageUri: require('../../assets/images/profiles/profile2.jpg'),
       name: 'User2',
     },
-    imageUri: '/images/stories/story2.jpg',
+    imageUri: require('../../assets/images/stories/story2.jpg'),
     caption: 'Beautiful city #instagram',
     likesCount: 1234,
     postedAt: '6 minutes ago',
@@ -41,10 +41,10 @@ const data: IPost[] = [
   {
     id: '3',
     user: {
-      imageUri: '/images/profiles/profile3.jpg',
+      imageUri: require('../../assets/images/profiles/profile3.jpg'),
       name: 'User3',
     },
-    imageUri: '/images/stories/story3.jpg',
+    imageUri: require('../../assets/images/stories/story3.jpg'),
     caption: 'Beautiful city #instagram',
     likesCount: 1234,
     postedAt: '6 minutes ago',

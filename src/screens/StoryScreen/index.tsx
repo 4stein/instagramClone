@@ -72,6 +72,7 @@ const StoryScreen = () => {
   };
 
   if (!userStories) {
+    // setTimeout(() => navigation.push('HomeScreen', {}), 1000);
     return (
       <SafeAreaView>
         <ActivityIndicator />
@@ -84,10 +85,7 @@ const StoryScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <TouchableWithoutFeedback onPress={handlePress}>
-        <ImageBackground
-          source={{ uri: 'asset:' + activeStory.imageUri }}
-          style={styles.image}
-        >
+        <ImageBackground source={activeStory.imageUri} style={styles.image}>
           <View style={styles.userInfo}>
             <ProfilePicture uri={userStories.user.imageUri} size={50} />
             <Text style={styles.userName}>{userStories.user.name}</Text>
