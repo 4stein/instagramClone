@@ -17,14 +17,30 @@ import ProfilePicture from '../../components/ProfilePicture';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { useFocusEffect } from '@react-navigation/native';
 
 const StoryScreen = () => {
+  const [shouldHide, setShouldHide] = React.useState(false);
+
+  useFocusEffect(() => {
+    setShouldHide(false);
+    return () => {
+      setShouldHide(true);
+    };
+  });
+
+  return shouldHide ? null : <StoryScreenChildren />;
+};
+
+const StoryScreenChildren = () => {
   const [userStories, setUserStories] = useState<any>(null);
   const [activeStoryIndex, setActiveStoryIndex] = useState<any>(null);
 
   const route: any = useRoute();
   const navigation = useNavigation<StackNavigationProp<any>>();
   const userId = route.params.userId;
+
+  const UsersLength = storiesData.map(item => item.user).length;
 
   useEffect(() => {
     const userStories = storiesData.find(
@@ -41,10 +57,26 @@ const StoryScreen = () => {
   };
 
   const navigateToPrevUser = () => {
-    navigation.push('Story', { userId: (parseInt(userId) - 1).toString() });
+    console.log(userId);
+
+    if (+userId - 1 === 0) {
+      setTimeout(() => {
+        navigation.push('HomeScreen'), 100;
+      });
+      return null;
+    } else {
+      navigation.push('Story', { userId: (parseInt(userId) - 1).toString() });
+    }
   };
 
   const handleNextStory = () => {
+    if (+userId >= UsersLength) {
+      setTimeout(() => {
+        navigation.push('HomeScreen'), 100;
+      });
+      return null;
+    }
+
     if (activeStoryIndex >= userStories.stories.length - 1) {
       navigateToNextUser();
       return;

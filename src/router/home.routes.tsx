@@ -6,7 +6,6 @@ import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from '../screens/HomeScreen';
-import StoryScreen from '../screens/StoryScreen';
 import logo from '../assets/images/logo.png';
 // const logo = require('../../assets/logo.png');
 

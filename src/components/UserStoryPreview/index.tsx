@@ -9,7 +9,7 @@ interface IStory {
   story: {
     user: {
       id: string;
-      imageUri: string;
+      imageUri: number;
       name: string;
     };
   };
