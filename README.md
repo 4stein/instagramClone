@@ -1,4 +1,4 @@
-# React-Native Expo Instagram clone app
+# React-native expo Instagram clone app
 Expo, React-Namtive, TypeScript
 
 ## Available scripts to start application
